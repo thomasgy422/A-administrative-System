@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}Choose Team-member{% endblock %}
+
+{% block content %}
+<div class='container'>
+    <h2>User: {{ username }}</h2>
+    <h3>Course: {{ course }}</h3>
+    <h3>Team: {{ team }}</h3>
+    <br>
+    <h3>Please select a student from the list below:</h3>
+</div>
+<div class='container'>
+{% for user in displayedList %}
+    <p>
+        <a href="{{ url_for('paquestionnaire', teammember=user, username=current_user.username, course=course, team=team) }}" class="btn btn-primary" role="button">{{ user }}</a>
+    </p>
+{% endfor %}
+</div>
+{% endblock %}

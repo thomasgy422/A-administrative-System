@@ -1,0 +1,6 @@
+student_id,name,courses,student
+1001,test_s one,cmt1,student
+1002,test_s two,cmt2,student
+1003,test_l one,cmt1,leader
+1004,test_s three,cmt1 cmt2 cmt3,student
+1005,test_l two,,leader

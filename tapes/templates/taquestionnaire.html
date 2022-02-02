@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}Peer Evaluation Questionnaire{% endblock %}
+
+<!-- Alert Flashing -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-dismissible fade show mb-0 bg-dark text-light" role="alert">
+    {{ message }}
+    <div>
+        <button type="button" class="btn-close btn-close-white mb-0" data-bs-dismiss="alert"
+            aria-label="Close "></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+<!-- Alert Flashing end -->
+
+{% block content %}
+
+<!-- Peer Evaluation Questionnaire form div -->
+<div class="container">
+    <div class="row row-cols-xs-1 justify-content-center">
+        <div class="col col-sm-auto order-sm-second justify-content-center" id="peer-evaluation-questionnaire-div">
+            
+            <!-- Peer Evaluation Questionnaire form -->
+            <form class="container" method="POST" action="">
+                <h2 class="mb-3">Questionnaire</h2>
+                {{ form.csrf_token }}
+
+                {{ form.radio_one.label }} {{ form.radio_one }}
+                <br>
+                {{ form.radio_two.label }} {{ form.radio_two }}
+                <br>
+                {{ form.radio_three.label }} {{ form.radio_three }}
+                <br>
+                {{ form.submit }}
+                <!-- <button class="btn btn-success" id="peq-submit" type="submit" value="Submit">Submit</button> -->
+                
+            </form><!-- Peer Evaluation Questionnaire form end -->
+            <br>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div><!-- Peer Evaluation Questionnaire form div end -->
+
+{% endblock %}

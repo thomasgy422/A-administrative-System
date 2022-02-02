@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-4">
+    <div class="login-wrap py-5">
+      <div class="img d-flex align-items-center justify-content-center">
+        <img class="img-fluid" src="/static/Pics/Logo.png" alt="Penny Thoughts">
+      </div>
+      <h3 class="text-center mb-0">Welcome</h3>
+      <p class="text-center">please sign in below</p>
+      <br>
+      <div class="d-flex align-items-center justify-content-center">
+        <form method="POST" class="login-form">
+          {{ form.csrf_token }}
+          <div class="form-group">
+            <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user fa-lg"></span>
+            </div>
+            <br>
+            <div class="justify-content-center">{{ form.email.label }} &nbsp&nbsp&nbsp&nbsp&nbsp {{ form.email }}</div>
+            <div>{% for error in form.email.errors %} <span style="color: red;" class="alert">{{ error }}</span>{% endfor %}</div>
+          </div>
+          <br>
+          <div class="form-group">
+            <div class="alignright">{{ form.password.label }} {{ form.password }}</div>
+            <div>{% for error in form.password.errors %} <span style="color: red;" class="alert">{{ error }}</span>{% endfor %}</div>
+          </div>
+          <br>
+          <div class="form-group">
+            <button type="submit" class="btn form-control btn-primary rounded submit px-3" value="Sign In">Sign
+              In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

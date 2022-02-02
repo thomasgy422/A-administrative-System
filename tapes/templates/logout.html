@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form method="POST" action="">
+    {{ form.csrf_token }}
+    {{ form.email.label }} {{ form.email }}
+    {{ form.password.label }} {{ form.password }}
+    <input type="submit" value="Login">
+</form>
+
+<p class="warning">
+    <br>
+    Sorry, the details provided where incorrect. Please try again.
+</p>
+
+
+{% endblock content %}

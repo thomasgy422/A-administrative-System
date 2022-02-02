@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<form method="POST" action="" class="login">
+  {{ form.csrf_token }}
+  <table>
+  <tr>
+    <td>{{ form.username.label }} </td><td> {{ form.username }}
+  {% for error in form.username.errors %}<span class="errorspaced">{{ error }}</span>{% endfor %}</td></tr>
+  <tr>
+    <td>{{ form.email.label }} </td><td> {{ form.email }}
+  {% for error in form.email.errors %} <span class="errorspaced">{{ error }}</span>{% endfor %}</td></tr>
+  <tr>
+    <td>{{ form.password.label }} </td><td> {{ form.password }}
+  {% for error in form.password.errors %}
+            <span class="errorspaced">{{ error }}</span>
+            {% endfor %}</td></tr>
+            <tr>
+              <td>{{ form.confirm_password.label }} </td><td> {{ form.confirm_password }}
+            {% for error in form.confirm_password.errors %}
+            <span class="errorspaced">{{ error }}</span>
+            {% endfor %}</td></tr>
+    <tr>
+      <td></td>
+      <td class="alignright">  <input type="submit" value="Register">
+      </td>
+</form>
+</table>
+            <br>
+{% endblock content %}

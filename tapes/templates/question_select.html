@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ course }}Team Setup {% endblock %}
+
+{% block content %}
+
+<div>
+     <h2>
+          Course: {{ course }}    
+     </h2>
+     <a style="float: right; padding-right: 0.5rem" href="{{ url_for('evaluation_course_select', course=course) }}">Return to previous page</a>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
+     <div class="row">
+          <div class="col-4">
+          </div>
+          <div class="col-6">
+               <form method="POST" action="{{url_for("question_select", course=course)}}">
+                    <h3>Please select questions you want to add:</h3>
+                    <div>
+                         <input type="checkbox" id="Q1" name="Question" value=1>
+                         <label for="Q1">{{ Q1 }}</label>
+                         <br>
+                         <input type="checkbox" id="Q2" name="Question" value=2>
+                         <label for="Q2">{{ Q2 }}</label>
+                         <br>
+                         <input type="checkbox" id="Q3" name="Question" value=3>
+                         <label for="Q3">{{ Q3 }}</label>
+                         <br>
+                         <input type="checkbox" id="Q4" name="Question" value=4>
+                         <label for="Q4">{{ Q4 }}</label>
+                         <br>
+                         <input type="checkbox" id="Q5" name="Question" value=5>
+                         <label for="Q5">{{ Q5 }}</label>
+                         <br>
+                         <input type="checkbox" id="Q6" name="Question" value=6>
+                         <label for="Q6">{{ Q6 }}</label>
+                    </div>
+                    <br>
+                    <div>
+                         <input type="submit" value="submit">
+                    </div>
+               </form>
+          </div>
+          <div class="col-2">  
+          </div> 
+     </div>  
+</div>
+
+{% endblock content %}

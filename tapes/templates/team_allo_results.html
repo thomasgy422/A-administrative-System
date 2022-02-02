@@ -1,0 +1,168 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+    <h2>
+        Course: {{ course }} 
+        <br>
+        Size: {{ size }} 
+        <br>
+        Priority: {{ priority }}         
+    </h2>
+    <a style="float: right; padding-right: 0.5rem" href="{{ url_for('team_allo_module_main', course=course) }}">Return to main</a>
+</div>
+<br>
+<br>
+    <!--
+    <div>
+        {% for group in ListOfGroups %}
+            <p>{{ group }}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        {% for course in current_user.courses %}
+            {{ course.title }}
+        {% endfor %}
+    </div>
+
+    <div>
+        {% for i in students %}
+            {{ i }}
+        {% endfor %}
+    </div>
+  
+    <div>
+        {% for i in test %}
+            {{ i }}
+        {% endfor %}
+    </div>
+ 
+    <div>
+        {% for student in students %}
+            {{ student.id, student.username }}
+        {% endfor %}
+    </div>
+
+    <div>
+        {{ DictOfTeams }}
+    </div>
+-->    
+<!--
+    <div>
+        {% for group in ListOfGroups %}
+            <p>{{ group }}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        {% for team, members in DictOfTeams.items() %}
+            <p>Team: {{ team }} | Members: {{ members }}</p>
+        {% endfor %}
+    </div>
+
+    <div>
+        {% for team, members in DictOfTeams.items() %}
+            {% for member in members %}    
+                <p>Team: {{ team }} | Members: {{ member.id, member.username }}</p>
+            {% endfor %}    
+        {% endfor %}
+    </div>
+-->
+<!--
+<div>
+        {% for team, members in DictOfTeams.items() %}
+            <p>Team: {{ team }} | Members: 
+                {% for member in members %}
+                    {{ member.id, member.username }}
+                {% endfor %}
+            </p>            
+        {% endfor %}
+    </div>
+
+{% for team, members in DictOfTeams.items() %}
+    <p>Team: {{ team }} | Members:
+        {{ members[0] }}
+        {% for member in members[1:]%}
+            {{ member }}
+        {% endfor %}
+    </p>
+{% endfor %}
+-->
+    <div class="container">
+        <table style="width:100%; text-align:center">
+            <colgroup>
+                <col span="1" style="width: 30%">
+                <col span="1" style="width: 70%">
+            </colgroup>
+            <tr style="font-size: 1.2rem; border:1px solid#000">
+                <th>Team Name</th>
+                <th>Team Members</th>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            {% for team, members in DictOfTeams.items() %}
+            <tr>
+                <td rowspan="{{GridSize}}" style="border:1px solid#000; background-color: #77f78c">{{ team }}</td>
+                <td style="border:1px solid#000">{{ members[0].id, members[0].username }}</td>
+            </tr>
+            {% for member in members[1:] %}
+            <tr>
+                <td style="border:1px solid#000">{{ member.id, member.username }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="2">&nbsp;</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+
+<!--
+    <div>
+        {{ CourseObject }}
+        {{ CourseObject.id }}
+    </div>
+
+    <div>
+        {% for team in DictOfTeams.keys() %}
+            <p>{{ team }}</p>
+        {% endfor %}    
+    </div>
+    <div>
+        {% for member in DictOfTeams.values() %}
+            <p>{{ member }}</p>
+        {% endfor %}
+    </div>
+    <div>
+        {% for team, members in DictOfTeams.items() %}
+            {% for member in members %} 
+                <p>{{ member }}</p>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    <div>
+        {% for members in DictOfTeams.values() %}
+            {% for member in members %}
+                <p>{{ member }}</p>
+           {% endfor %}
+        {% endfor %}
+    </div>
+    <div>
+    
+    </div>
+
+
+    <div>
+        {% for team, members in DictOfTeams.items() %}
+            {{ team }}
+            {% for member in members %}
+                <p>{{ member }}</p>
+            {% endfor %}
+        {% endfor %}
+    </div>
+-->
+
+{% endblock content %}

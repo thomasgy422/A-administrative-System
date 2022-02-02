@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+ 
+<h3>Please select group or download information:</h3>
+<br>
+<table width="800px" class="table table-striped">
+    <tr>
+        <th>Course name&nbsp;</th>
+        <th>Number of people</th>
+        <th> </th>
+        <th> </th>
+    </tr>
+    {% for course in course %}
+    <tr>
+        <td>{{ course.title }}</td>
+        <td>{{ course.users|length - 2}}</td>
+        <td><a href="{{ url_for('team_information', course=course.title) }}">check &nbsp;</a></td>
+        <td><a href="{{ url_for('user_csv', course=course.title) }}">download</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+
+{% endblock %}

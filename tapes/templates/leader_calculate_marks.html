@@ -1,0 +1,114 @@
+<!-- Lecturer login test -->
+{% extends "layout.html" %}
+{% for team in teams %}
+    {% if team.course_id == chosenCourse.id %}
+      <p>
+        <a href="{{ url_for('leader_calculate_marks', username=current_user.username, course=course, team=teams.title) }}"</a>
+      </p>
+    {% endif %}
+{% endfor %}
+{% block content %}
+
+<br>
+<!-- Form -->
+<div class="settingtable">
+  <form action="{{ url_for('calculate', username=current_user.username, course=course, team=team) }}" method="POST">
+<!-- Type in group mark -->
+  <table class="settingtable">
+    <tr>
+    <div class="form-group">
+      <td><label for="Group mark">Group mark</label></td>
+      <td><input type="text" placeholder="" name="group_mark" /></td>
+    </div></tr>
+<!-- Type in value given for each banding e.g. 120% for excellent -->
+    <tr>
+    <div class="form-group">
+      <td><label for="Excellent">Excellent percentage</label></td>
+      <td><input type="text" placeholder="Excellent" name="excellent" /></td>
+    </div></tr>
+    <tr>
+    <div class="form-group">
+      <td><label for="Good">Good percentage</label></td>
+      <td><input type="text" placeholder="Good" name="good" /></td>
+    </div></tr>
+    <tr>
+    <div class="form-group">
+      <td><label for="Poor">Poor percentage</label></td>
+      <td><input type="text" placeholder="Poor" name="poor" /></td>
+    </div></tr>
+    <tr>
+    <div class="form-group">
+      <td><label for="No contrbution">No contrbution percentage</label></td>
+      <td><input type="text" placeholder="No contrbution" name="no_contrbution" /></td>
+    </div></tr>
+
+    <tr>
+    <div class="form-group">
+      <td><label for="Operation">Operation</label></td>
+      <td><select name="operation">
+          <option value="mean">Mean</option>
+      </select></td>
+    </div></tr>
+
+
+
+<!-- Button that when pressed calculates marks -->
+    <td></td>
+    <td class="alignright"> <input type="submit" value="Calculate"></td>
+    <br />
+  </table>
+  <table>
+    <div class="alert">
+      <br> Final Marks= {{ userMarks }}<br>
+      
+      {% for mark in userMarks %} 
+        {{ mark[0] }} = {{ mark[1] }}<br>
+      {% endfor %}
+
+      {% for PAQresponse in answers %}
+      <table>
+        <tr>
+        <td><h2>{{ PAQresponse.q1 }}</h2>
+            <h2>{{ PAQresponse.q2 }}</h2>
+            <h2>{{ PAQresponse.team }}</h2>
+        </td>
+        </tr>
+      </table>
+      {% endfor %}
+
+    </div>
+  </table>
+  </form>
+
+
+
+<br>
+
+
+<!-- {% if current_user.is_admin %}
+Welcome to the admin panel {{ current_user.username }}!
+{% else %}
+Hello, please login as an admin before accessing this panel &nbsp|<a href="{{ url_for('login') }}">Login&nbsp;</a>
+{% endif %} -->
+
+
+<!-- Input for group mark -->
+
+
+
+<!-- set percentage bands -->
+
+
+
+
+
+
+<!-- List students results -->
+
+
+
+<!-- Create text file containing results -->
+
+
+
+{% endblock content %}

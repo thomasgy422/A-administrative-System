@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Choose Team{% endblock %}
+
+{% block content %}
+<br>
+<div class='container'>
+<h2>User: {{ username }}</h2>
+<h3>Course: {{ course }}</h3>
+<h3>Please select a team:</h3>
+</div>
+<br>
+
+
+{% for user in teams.users if user.username == username %} 
+<div class='container'> 
+    <p>
+        <a href="{{ url_for('teamlist', username=current_user.username, course=course, team=teams.title) }}" class="btn btn-primary" role="button">{{ teams.title }}</a>
+    </p>
+</div>
+{% endfor %}
+
+{% if emptyList == 0 %}
+<div class='container'> 
+    <p>You are not in any teams for this course. Please follow the link below to return to the course list:</p>
+    <p>
+        <a class="btn btn-primary" href="{{ url_for('courses', username=current_user.username) }}">Courses</a>
+    </p>
+</div>
+{% endif %}
+
+{% endblock %}

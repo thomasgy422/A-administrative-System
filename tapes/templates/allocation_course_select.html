@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}Choose Course{% endblock %}
+
+{% block content %}
+
+<h1> </h1>
+<h2>User: {{ user.username }}</h2>
+<h3>Please select a course:</h3>
+<a style="float: right" href="{{ url_for('allocation') }}">Return to Allocation Mainpage</a>
+
+{% for course in user.courses %}
+<table>
+    <tr>
+        <td>
+            <h2><a href="{{ url_for('team_allo_module_main', course=course.title) }}">{{
+                    course.title }}</a></h2>
+        </td>
+    </tr>
+</table>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+
+<h3>Course: {{ course }}<a href="{{ url_for('user_csv', course=course) }}"><button style="border: none;float: right;margin-right: 30px;margin-top: 5px;">Download</button></a></h3>
+
+<br>
+<div class='container'>
+<table width="800px" class="table table-striped">
+    <tr>
+        <th>ID&nbsp;</th>
+        <th>Name&nbsp;</th>
+        <th>Email</th>
+        <th>Team</th>
+    </tr>
+
+    {% for i in users %}
+    <tr>
+        <td>{{ i.id }}&nbsp;</td>
+        <td>{{ i.username }}&nbsp;</td>
+        <td>{{ i.email }}</td>
+        {% for team in i.teams %}
+        {% if team.course_id == courseID.id %}
+        <td>{{ team.title }}&nbsp;</td>
+        {% endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</div>
+
+</table>
+<br>
+<br>
+
+{% endblock %}

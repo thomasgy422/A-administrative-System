@@ -1,0 +1,42 @@
+#header-div {
+    border-bottom:2px solid #6e928d;
+    margin-top:20px;
+    padding-top:20px;
+}
+
+
+/* RichardG's css for login and register and leader calculate marks pages */
+.links {
+  	display: flex;
+  	padding: 0 15px;
+}
+
+.login, .register {
+  	width: 400px;
+  	background-color: #ffffff;
+  	/*box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);*/
+  	margin: 100px auto;
+}
+
+.alignright {
+  text-align: right;
+}
+
+.errorspaced {
+  font-family: Arial, Helvetica, sans-serif;
+  color: red;
+  margin: 20px auto;
+  display: flex;
+  padding: 0 15px;
+}
+
+.flashlogin {
+  color: white;
+  padding: 0 6px;
+  white-space: nowrap;
+}
+
+.settingtable, .settingtable th, td {
+  padding: 6px;
+  text-align: left;
+}

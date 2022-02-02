@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Choose Course{% endblock %}
+
+{% block content %}
+
+<h1>User: {{ user.username }}</h1>
+<h3>Please select a course:</h3>
+
+{% for course in user.courses %}
+        <p>
+            <a href="{{ url_for('allocation_course_select', username=current_user.username, course=course.title) }}">{{ course.title}}</a>
+        </p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}Peer Evaluation Questionnaire{% endblock %}
+
+<!-- Alert Flashing -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-dismissible fade show mb-0 bg-dark text-light" role="alert">
+    {{ message }}
+    <div>
+        <button type="button" class="btn-close btn-close-white mb-0" data-bs-dismiss="alert"
+            aria-label="Close "></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+<!-- Alert Flashing end -->
+
+{% block content %}
+
+<!-- Peer Evaluation Questionnaire form div -->
+<div class="container">
+    <div class="row row-cols-xs-1 justify-content-center">
+        <div class="col col-sm-auto order-sm-second justify-content-center" id="peer-evaluation-questionnaire-div">
+            
+            <!-- Peer Evaluation Questionnaire form -->
+            <form class="container" method="POST" action="">
+                <h2 class="mb-3">Questionnaire</h2>
+                {{ form.csrf_token }}
+                <!-- {{ for question in nummberOfQuestions }} -->
+                {{ form.radio_one.label }} {{ form.radio_one }}
+                <div>{% for error in form.radio_one.errors %} <span style="color: red;" class="alert">{{ error }}</span>{% endfor %}</div>
+                <div class="container">
+                    <p class="border border-2 border-info rounded-3 m-1 p-3">Participation and Citizenship would include the following:<br> 
+                        •	&nbsp&nbsp Attended meetings regularly and on time,<br>
+                        •	&nbsp&nbsp Positive attitude, encouraged and motivated team members,<br> 
+                        •	&nbsp&nbsp Engages and provides effective contribution in discussions at meetings or online. <br>
+                        •	&nbsp&nbsp Supported team decisions, helped to reach team consensus, helped resolve conflicts in the team. <br>
+                    </p>
+                </div>
+                <br>
+                <br>
+                {{ form.radio_two.label }} {{ form.radio_two }}
+                <div>{% for error in form.radio_two.errors %} <span style="color: red;" class="alert">{{ error }}</span>{% endfor %}</div>
+                <div class="container">
+                    <p class="border border-2 border-info rounded-3 m-1 p-3">Time Management and Responsibility would include the following: <br>
+                        •	&nbsp&nbsp Accepted fair share of work <br>
+                        •	&nbsp&nbsp Reliably completed work by required time. <br>
+                        •	&nbsp&nbsp Participates in Team Project Management, formally or informally ensuring the work stays on track, with everyone informed of progress. <br>
+                    </p>
+                </div>
+                <br>
+                <br>
+                <button class="btn btn-success" id="peq-submit" type="submit" value="Submit">Submit</button>
+                
+            </form><!-- Peer Evaluation Questionnaire form end -->
+            <br>
+        </div>
+    </div>
+</div><!-- Peer Evaluation Questionnaire form div end -->
+
+{% endblock %}

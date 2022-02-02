@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}Choose allocation task{% endblock %}
+
+{% block content %}
+
+<h1>User: {{ user.username }}</h1>
+
+<br>
+    <a style="float: left" href="{{ url_for('team_allo_questionnaire_setup') }}">Pre-Team Allocation Questionnaire</a>
+<br>     
+    <a style="float: left" href="{{ url_for('allocation_course_select') }}">Team Allocation</a>
+<br>
+
+
+
+{% endblock content %}

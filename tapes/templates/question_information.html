@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+ <br>
+<div>
+     <h2>
+          Course: {{ course }}    
+     </h2>
+     <a style="float: right; padding-right: 0.5rem" href="{{ url_for('evaluation_course_select', course=course) }}">Return to previous page</a>
+     <a style="float: right; padding-right: 0.5rem" href="{{ url_for('reset_questions', course=course) }}">Reset Questions</a>
+</div>
+<br>
+                <form method="POST" action="/">
+                    <h3>Questions added for course {{ course }}:</h3>
+                    <br>
+                    <div style = "text-align: center">
+                        {% if Q.q1 == True %}
+                            <label for="Q1">{{ Q1 }}</label>
+                        <br>
+                            <input type="radio" id="Option1" name="ans1" value=4>
+                            <label for= "Option1">Excellent</label>
+                        <br>
+                            <input type="radio" id="Option2" name="ans1" value=3>
+                            <label for="Option2">Good</label>
+                        <br>
+                            <input type="radio" id="Option3" name="ans1" value=2>
+                            <label for="Option3">Poor</label>
+                        <br>
+                            <input type="radio" id="Option4" name="ans1" value=1>
+                            <label for="Option4">No Contribution</label>
+                        <br>
+                        <br>
+                        {% endif %}
+                        {% if Q.q2 == True %}
+                            <label for="Q2">{{ Q2 }}</label>
+                        <br>
+                            <input type="radio" id="Option1" name="ans2" value=4>
+                            <label for= "Option1">Excellent</label>
+                        <br>
+                            <input type="radio" id="Option2" name="ans2" value=3>
+                            <label for="Option2">Good</label>
+                        <br>
+                            <input type="radio" id="Option3" name="ans2" value=2>
+                            <label for="Option3">Poor</label>
+                        <br>
+                            <input type="radio" id="Option4" name="ans2" value=1>
+                            <label for="Option4">No Contribution</label>
+                        <br>
+                        <br>
+                        {% endif %}
+                        {% if Q.q3 == True %}
+                            <label for="Q3">{{ Q3 }}</label>
+                        <br>
+                            <input type="radio" id="Option1" name="ans3" value=3>
+                            <label for="Option1">Always</label>
+                        <br>
+                            <input type="radio" id="Option2" name="ans3" value=2>
+                            <label for="Option2">Sometimes</label>
+                        <br>
+                            <input type="radio" id="Option3" name="ans3" value=1>
+                            <label for="Option3">Never</label>
+                        <br>
+                        <br>
+                        {% endif %}
+                        {% if Q.q4 == True %}
+                            <label for="Q4">{{ Q4 }}</label>
+                        <br>
+                            <input type="radio" id="Option1" name="ans4" value=3>
+                            <label for="Option1">Always</label>
+                        <br>
+                            <input type="radio" id="Option2" name="ans4" value=2>
+                            <label for="Option2">Sometimes</label>
+                        <br>
+                            <input type="radio" id="Option3" name="ans4" value=1>
+                            <label for="Option3">Never</label>
+                        <br>
+                        <br>
+                        {% endif %}
+                        {% if Q.q5 == True %}
+                            <label for="Q5">{{ Q5 }}</label>
+                        <br>
+                            <input type="radio" id="Option1" name="ans5" value=2>
+                            <label for="Option1">Yes</label>
+                        <br>
+                            <input type="radio" id="Option2" name="ans5" value=1>
+                            <label for="Option2">No</label>
+                        <br>
+                        <br>
+                        {% endif %}
+                        {% if Q.q6 == True %}
+                            <label for="Q6">{{ Q6 }}</label>
+                        <br>
+                            <input type="radio" id="Option1" name="ans6" value=2>
+                            <label for="Option1">Yes</label>
+                        <br>
+                            <input type="radio" id="Option2" name="ans6" value=1>
+                            <label for="Option2">No</label>
+                        <br>
+                        <br>
+                        {% endif %}   
+                    </div>
+                </form>
+<br>
+<br>
+
+{% endblock %}

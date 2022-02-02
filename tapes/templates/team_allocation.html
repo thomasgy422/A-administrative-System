@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %} Team Setup {% endblock %}
+
+{% block content %}
+
+<div>
+     <h2>
+          Course: {{ course }} 
+     </h2>
+     <a style="float: right; padding-right: 0.5rem" href="{{ url_for('team_allo_module_main', course=course) }}">Return to main</a>
+</div>
+<br>
+<br>
+<br>
+<div class="container">
+     <div class="row">
+          <div class="col-4">
+          </div>
+          <div class="col-6">
+               <form method="POST" action="">
+                    <h3>Please select team size:</h3>
+                    <div>
+                         <input type="radio" id="SizeOption1" name="size" value=4>
+                         <label for="SizeOption1">4</label>
+                         <br>
+                         <input type="radio" id="SizeOption2" name="size" value=3>
+                         <label for="SizeOption2">3</label>
+                         <br>
+                         <input type="radio" id="SizeOption3" name="size" value=5>
+                         <label for="SizeOption3">5</label>
+                         <br>
+                         <input type="radio" id="SizeOption4" name="size" value=6>
+                         <label for="SizeOption4">6</label>
+                    </div>
+                    <br>
+                    <h3>Please select priority grouping:</h3>
+                    <div>
+                         <input type="radio" id="PriorityOption1" name="priority" value="experience">
+                         <label for="PriorityOption1">Has prior experience in programming</label>
+                         <br>
+                         <input type="radio" id="PriorityOption2" name="priority" value="degree">
+                         <label for="PriorityOption2">Degree type</label>
+                         <br>
+                         <input type="radio" id="PriorityOption3" name="priority" value="age">
+                         <label for="PriorityOption3">Age group</label>
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                         <input type="submit" value="submit">
+                    </div>
+               </form>
+          </div>
+          <div class="col-2">     
+          </div>
+     </div>  
+</div>
+
+{% endblock content %}
+

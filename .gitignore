@@ -1,0 +1,9 @@
+# Directories
+__pycache__/
+venv/
+env/
+mvpenv/
+SEEnv/
+.vscode/
+
+# files

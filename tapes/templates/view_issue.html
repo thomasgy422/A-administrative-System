@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+ <br>
+<h5>Please view the details:</h5>
+<br>
+<table width="800px" class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Team</th>
+        <th>Course</th>
+        <th>Content</th>
+    </tr>
+    {% for issue in issues %}
+    <tr>
+        <td>{{ issue.id }}</td>
+        <td>{{ issue.username }}</td>
+        <td>{{ issue.course }}</td>
+        <td>{{ issue.team }}</td>
+        <td>{{ issue.content }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ course }} Main Page {% endblock %}
+
+{% block content %}
+
+<div>
+    <h2>
+        Course: {{ course }}
+    </h2>
+    <a style="float: right; padding-right:0.5rem" href="{{ url_for('evaluation_course_select') }}">Return to Course List</a>
+</div>
+<br>
+<div style="text-align: center; font-size: 2rem">
+{% if questionCheck == False %}
+    <p>No questions have been set for this module yet</p>
+    <a href="{{ url_for('question_select', course=course) }}">Generate Questions</a>    
+{% endif %}
+{% if questionCheck == True %}
+    <a href="{{ url_for('question_information', course=course) }}">View Questions</a> 
+<br>
+    <a href="{{ url_for('delete_questions', course=course, questionCheck=questionCheck) }}">Delete Questions</a>
+<br>
+{% endif %}
+</div>
+
+{% endblock %}
